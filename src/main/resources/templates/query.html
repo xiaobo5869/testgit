@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<a th:href="@{toinsert}">新增</a> 
+	<table>
+		<thead>
+			<tr>
+				<th>编号</th>
+				<th>姓名</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="item : ${list}">
+				<td th:text="${item.id}"></td>
+				<td th:text="${item.name}"></td>
+				<td>
+					<a th:href=	"@{queryById(id=${item.id})}">修改</a>
+					<a th:href="@{delete(id=${item.id})}">删除</a>
+				</td>
+				
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
